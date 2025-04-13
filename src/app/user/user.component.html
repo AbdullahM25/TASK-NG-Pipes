@@ -1,14 +1,26 @@
 <div class="user-card">
-  <h2 class="user-name">{{ data.fullName }}</h2>
+  <h2 class="user-name">{{ data.fullName | titlecase }}</h2>
 
   <p class="user-status">
     Status:
     <span>{{ data.status }}</span>
+    <span [style.color]="data.status | status">{{ data.status }}</span>
   </p>
 
-  <p class="user-info">Account Balance: {{ data.accountBalance }}</p>
+  <!-- <p class="user-info">Account Balance: {{ data.accountBalance }}</p> -->
+  <p class="user-info">
+    Account Balance:
+    {{ data.accountBalance | currency : "GBP" : "symbol" : "1.2-2" }}
+  </p>
 
-  <p class="user-info">Registered: {{ data.registrationDate }}</p>
+  <!-- <p class="user-info">Registered: {{ data.registrationDate }}</p> -->
+  <p class="user-info">
+    Registered: {{ data.registrationDate | date : "mediumDate" }}
+  </p>
 
-  <p class="user-info last-login">Last Login: {{ data.lastLogin }}</p>
+  <!-- <p class="user-info last-login">Last Login: {{ data.lastLogin }}</p> -->
+  <p class="user-info last-login">
+    Last Login: {{ data.lastLogin | date : "mediumDate" }}
+    <span>{{ data.lastLogin | recentLogin }}</span>
+  </p>
 </div>

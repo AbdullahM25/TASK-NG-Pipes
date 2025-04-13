@@ -7,9 +7,9 @@ import { UserComponent } from './user/user.component';
   standalone: true,
   imports: [UserComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'TASK-NG-Pipes';
-  users = users
+  users = users;
 }
